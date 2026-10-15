@@ -1,0 +1,421 @@
+```css
+/* RESET */
+* {
+    box-sizing: border-box;
+}
+
+/* TAMPILAN UTAMA */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #3b1019;
+    background: linear-gradient(
+        135deg,
+        #fff0f2,
+        #ffe0e5,
+        #fff5f6
+    );
+    line-height: 1.6;
+}
+
+/* HEADER TETAP DI ATAS */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    background: linear-gradient(
+        120deg,
+        #650018,
+        #c90032,
+        #7a001d
+    );
+
+    color: white;
+    padding: 15px 6%;
+    box-shadow: 0 5px 20px rgba(160, 0, 40, 0.4);
+    border-bottom: 1px solid #ff9aaa;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* NAVIGASI */
+nav a {
+    color: rgb(240, 33, 33);
+    text-decoration: none;
+    margin-right: 16px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ffd4dc;
+    text-shadow: 0 0 10px white;
+}
+
+/* AGAR JUDUL BAGIAN TIDAK TERTUTUP HEADER */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+/* MEMBERI JARAK DI BAWAH HEADER */
+main {
+    padding-top: 75px;
+}
+
+/* TAMPILAN HP */
+@media (max-width: 600px) {
+    header {
+        padding: 12px 5%;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 4px 8px 4px 0;
+        font-size: 14px;
+    }
+
+    main {
+        padding-top: 110px;
+    }
+}
+```
+
+/* LOGO DAN NAVIGASI */
+header h1 {
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.35);
+}
+
+nav a {
+    position: relative;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    margin-right: 16px;
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffd4dc;
+    text-shadow: 0 0 10px #ffffff;
+}
+
+/* EFEK GARIS MENGKILAP NAVIGASI */
+nav a::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        #ff9aaa,
+        #ffffff,
+        #ff5364
+    );
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* HERO / BAGIAN PEMBUKA */
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 70px 6%;
+    color: white;
+    background: linear-gradient(
+        120deg,
+        #650018,
+        #c90032,
+        #ed4965,
+        #7a001d
+    );
+    background-size: 250% 250%;
+    animation: redGradient 8s ease infinite;
+    box-shadow: inset 0 -5px 20px rgba(70, 0, 15, 0.2);
+}
+
+/* CAHAYA BERGERAK PADA HERO */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 55%;
+    height: 200%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.18),
+        rgba(255, 255, 255, 0.35),
+        transparent
+    );
+    transform: rotate(25deg);
+    animation: heroShine 6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.hero h2 {
+    position: relative;
+    font-size: 2.4rem;
+    margin: 8px 0;
+    text-shadow: 0 3px 12px rgba(70, 0, 15, 0.35);
+}
+
+.hero p {
+    position: relative;
+}
+
+/* ANIMASI GRADIEN */
+@keyframes redGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ANIMASI KILAU */
+@keyframes heroShine {
+    0%, 15% {
+        left: -100%;
+    }
+
+    65%, 100% {
+        left: 150%;
+    }
+}
+
+/* BAGIAN KONTEN */
+.section {
+    padding: 32px 6%;
+}
+
+/* JUDUL BAGIAN */
+.section h2 {
+    color: #a0002a;
+    text-shadow: 0 2px 8px rgba(201, 0, 50, 0.12);
+}
+
+/* GAMBAR */
+.section img {
+    display: block;
+    width: 100%;
+    max-width: 720px;
+    height: auto;
+    border-radius: 12px;
+    border: 2px solid #ff9aaa;
+    box-shadow:
+        0 8px 22px rgba(120, 0, 30, 0.18),
+        0 0 12px rgba(255, 83, 100, 0.12);
+    transition: transform 0.35s, box-shadow 0.35s;
+}
+
+.section img:hover {
+    transform: scale(1.02);
+    box-shadow:
+        0 12px 30px rgba(160, 0, 40, 0.3),
+        0 0 22px rgba(255, 83, 100, 0.3);
+}
+
+/* CONTAINER KARTU */
+.kartu-container {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* KARTU DENGAN EFEK KACA DAN KILAU */
+.kartu {
+    position: relative;
+    overflow: hidden;
+    flex: 1 1 220px;
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #fff0f3,
+        #ffe0e6
+    );
+    padding: 18px;
+    border-radius: 14px;
+    border: 1px solid #ffb0bf;
+    box-shadow: 0 5px 18px rgba(130, 0, 30, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* SAPUAN CAHAYA KARTU */
+.kartu::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -130%;
+    width: 70%;
+    height: 100%;
+    background: linear-gradient(
+        100deg,
+        transparent,
+        rgba(255, 255, 255, 0.8),
+        transparent
+    );
+    transform: skewX(-25deg);
+    transition: left 0.7s ease;
+    pointer-events: none;
+}
+
+.kartu:hover::before {
+    left: 150%;
+}
+
+.kartu:hover {
+    transform: translateY(-6px);
+    box-shadow:
+        0 12px 28px rgba(160, 0, 40, 0.2),
+        0 0 15px rgba(255, 83, 100, 0.15);
+}
+
+.kartu h3 {
+    color: #b0002a;
+}
+
+/* SUMBER INFORMASI */
+.sumber {
+    font-size: 0.85rem;
+    color: #80515b;
+}
+
+/* FOOTER */
+footer {
+    background: linear-gradient(
+        135deg,
+        #35000c,
+        #76001d,
+        #4a0012
+    );
+    color: white;
+    text-align: center;
+    padding: 16px;
+    border-top: 2px solid #d92c50;
+    box-shadow: 0 -5px 20px rgba(120, 0, 30, 0.15);
+}
+
+/* TAUTAN DI FOOTER */
+footer a {
+    color: #ffb8c5;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: white;
+    text-shadow: 0 0 10px #ff5364;
+}
+
+/* RESPONSIF UNTUK HP */
+@media (max-width: 600px) {
+    nav a {
+        display: inline-block;
+        margin: 4px 10px 4px 0;
+    }
+
+    .hero {
+        padding: 50px 6%;
+    }
+
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+
+    .section {
+        padding: 25px 6%;
+    }
+
+    .kartu-container {
+        flex-direction: column;
+    }
+
+    .kartu {
+        flex-basis: auto;
+    }
+}
+
+/* MENGURANGI ANIMASI JIKA DIPERLUKAN */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+```
+
+
+
+
+/* Foto bisa diklik */
+#fotoWisata {
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+}
+
+#fotoWisata:hover {
+    transform: scale(1.02);
+}
+
+/* Latar belakang saat foto diperbesar */
+#popupFoto {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background: rgba(30, 0, 8, 0.95);
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    cursor: zoom-out;
+}
+
+/* Foto ukuran besar */
+#fotoBesar {
+    max-width: 90%;
+    max-height: 85vh;
+    object-fit: contain;
+    border: 2px solid #ff5364;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(255, 23, 68, 0.5);
+}
+
+/* Tombol tutup */
+.tutup {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    color: white;
+    font-size: 45px;
+    cursor: pointer;
+}
+
+.tutup:hover {
+    color: #ff5364;
+}
+
+
+
+
